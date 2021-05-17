@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors")
 const mongoose = require("mongoose");
 const products = require("./routes/products");
 const users = require("./routes/users");
@@ -17,6 +18,7 @@ mongoose
     console.log("MongoDB connected");
   });
 
+app.use(cors())
 app.use("/uploads", express.static("uploads"));
 app.use(express.urlencoded({
   extended: true
